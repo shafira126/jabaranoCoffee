@@ -58,9 +58,12 @@ Staf dapat melakukan beberapa aktivitas berikut:
 - Menghasilkan kode akses unik untuk setiap pelanggan, misalnya JBQ482.
 - Melihat daftar antrean yang sedang berlangsung.
 - Memanggil pelanggan berikutnya.
-- Mengubah status antrean menjadi selesai atau dibatalkan.
+- Mengubah status antrean: SEATED, FINISHED, CANCELLED, atau NO_SHOW.
 
 ### 4.4. Manajemen Meja
+
+Admin dapat:
+ -Menambah, mengubah, dan menghapus data meja serta kapasitasnya 
 
 Staf dapat:
 - Menambahkan, mengubah, dan menghapus data meja.
@@ -112,7 +115,7 @@ Admin dapat melihat riwayat antrean dan jumlah pelanggan yang telah dilayani ber
 7. Staf mengalokasikan meja yang sesuai dengan jumlah pelanggan.
 8. Sistem mengubah status antrean menjadi CALLED dan status meja menjadi RESERVED.
 9. Informasi nomor antrean dan nomor meja ditampilkan pada Public Display.
-10. Setelah pelanggan menempati meja, staf mengubah status antrean menjadi SEATED dan status meja menjadi OCCUPIED.
+10. Setelah pelanggan menempati meja, staf mengubah status antrean menjadi SEATED dan status meja menjadi OCCUPIED. Apabila pelanggan tidak datang, staf memberi status no_show dan status meja kembali available
 11. Setelah pelanggan selesai, staf mengubah status meja menjadi CLEANING, kemudian menjadi AVAILABLE setelah meja siap digunakan kembali.
 
 ### 5.2. Alur Login
@@ -165,11 +168,11 @@ Menyimpan informasi antrean pelanggan.
 | Nama Kolom | Tipe Data | Keterangan |
 |---|---|---|
 | id | INT | Primary Key, Auto Increment |
-| queue_number | VARCHAR(10) | Nomor antrean |
-| access_code | VARCHAR(20) | Kode akses pelanggan |
+| queue_number | VARCHAR(10) | Nomor antrean, reset harian |
+| access_code | VARCHAR(20) | Kode akses pelanggan. unik |
 | customer_name | VARCHAR(100) | Nama pelanggan |
 | party_size | INT | Jumlah orang |
-| table_id | INT | Foreign Key ke cafe_tables |
+| table_id | INT | Foreign Key ke cafe_tables, boleh null (kosong selama WAITING) |
 | status | ENUM | WAITING, CALLED, SEATED, FINISHED, CANCELLED, NO_SHOW |
 | joined_at | DATETIME | Waktu pendaftaran |
 | called_at | DATETIME | Waktu pemanggilan |
