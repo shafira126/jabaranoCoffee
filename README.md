@@ -1,4 +1,5 @@
 # jabaranoCoffee
 
 # 1. Ide Proyek
-# 2. 
+# 2. Gambaran Proyek
+#
