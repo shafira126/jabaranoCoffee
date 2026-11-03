@@ -9,50 +9,51 @@
 
 <h4>Staff</h4>
 <ol>
-  <li>Login ke sistem</li>
+  1. Login ke sistem
 </ol>
 <p>Staf melakukan login menggunakan username dan password yang sudah terdaftar.</p>
 
 <ol>
-  <li>Mendaftarkan pelanggan ke dalam antrean</li>
+  2. Mendaftarkan pelanggan ke dalam antrean
 </ol>
-<p>Staf masuk ke dashboard, kemudian memasukkan data pelanggan berupa nama, nomor telepon (opsional), dan jumlah orang. Sistem akan membuat nomor antrean secara otomatis.</p>
+<p>Staf memasukkan data pelanggan berupa nama, nomor telepon (opsional), dan jumlah orang. Sistem akan membuat nomor antrean secara otomatis.</p>
 
 <ol>
-  <li>Mengelola dan memanggil antrean</li>
+  3. Mengelola dan memanggil antrean
 </ol>
 <p>Staf dapat melihat daftar antrean, memantau posisi pelanggan, serta memanggil pelanggan sesuai urutan antrean.</p>
 
 <ol>
-  <li>Mengatur meja dan mengubah status meja</li>
+  4. Mengatur meja dan mengubah status meja
 </ol>
-<p>Staf dapat melihat ketersediaan meja, memilih meja berdasarkan jumlah pelanggan dan kapasitas meja, serta memperbarui status meja mulai dari tersedia, dipesan, digunakan, hingga selesai dibersihkan.</p>
+<p>Staf dapat melihat ketersediaan meja, memilih meja berdasarkan jumlah pelanggan dan kapasitas meja, serta memperbarui status meja.</p>
 
 <ol>
-  <li>Melihat riwayat antrean</li>
+  5. Melihat riwayat antrean
 </ol>
 <p>Staf dapat melihat riwayat antrean pelanggan, termasuk antrean yang selesai, dibatalkan, maupun pelanggan yang tidak datang.</p>
 
 <h4>Pelanggan</h4>
 <ol>
-  <li>Memasukkan nomor antrean</li>
+  1. Memasukkan nomor antrean
 </ol>
-<p>Pelanggan memasukkan nomor antrean atau kode tracking yang diberikan oleh staf untuk mengakses informasi antrean.</p>
+<p>Pelanggan memasukkan nomor antrean atau kode tracking yang diberikan staf untuk mengakses informasi antrean.</p>
 
 <ol>
-  <li>Melihat posisi antrean saat ini</li>
+  2. Melihat posisi antrean saat ini
 </ol>
 <p>Sistem menampilkan posisi antrean pelanggan berdasarkan jumlah antrean yang masih menunggu.</p>
 
 <ol>
-  <li>Melihat estimasi waktu tunggu</li>
+  3. Melihat estimasi waktu tunggu
 </ol>
-<p>Pelanggan dapat melihat perkiraan waktu tunggu sebelum mendapatkan giliran untuk dilayani.</p>
+<p>Pelanggan dapat melihat perkiraan waktu tunggu sebelum mendapatkan giliran.</p>
 
 <ol>
-  <li>Melihat status antrean</li>
+  4. Melihat status antrean
 </ol>
-<p>Pelanggan dapat memantau perubahan status antrean, mulai dari masih menunggu, sudah dipanggil, hingga sudah mendapatkan meja.</p>
+<p>Pelanggan dapat memantau status antrean, mulai dari masih menunggu, sudah dipanggil, hingga sudah mendapatkan meja.</p>
+
   
 <h3>2.3.  Fungsionalitas</h3>
 <h2>3. Rancangan Database </h2>
