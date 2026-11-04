@@ -1,57 +1,38 @@
-# JabaQueue — Sistem Antrean Jabarano Cafe
+# Sistem Antrean Jabarano Cafe
 
 ## 1. Deskripsi Proyek
-
-*JabaQueue* merupakan aplikasi desktop berbasis Java Swing yang dirancang untuk membantu pengelolaan antrean dan meja di Jabarano Cafe.
+Proyek ini merupakan aplikasi desktop berbasis Java Swing yang dirancang untuk membantu pengelolaan antrean dan meja di Jabarano Cafe.
 
 Saat ini, pemanggilan pelanggan yang mendapatkan giliran sering kali dilakukan secara manual oleh staf. Hal tersebut dapat menyebabkan pelanggan tidak mendengar panggilan atau harus terus bertanya mengenai status antreannya.
 
-Melalui JabaQueue, staf dapat mengelola antrean dan ketersediaan meja secara terpusat. Pelanggan juga dapat melihat informasi ketersediaan meja serta memeriksa status antrean menggunakan kode akses yang diberikan oleh staf.
+Melalui proyek ini, staf dapat mengelola antrean dan ketersediaan meja secara terpusat. Pelanggan juga dapat melihat informasi ketersediaan meja serta memeriksa status antrean menggunakan kode akses yang diberikan oleh staf.
 
 ### Tujuan
-
 - Mempermudah staf dalam mengelola antrean pelanggan.
 - Mengurangi kebutuhan staf untuk memanggil pelanggan secara manual.
 - Memudahkan pelanggan dalam memantau status antrean.
 - Menampilkan informasi ketersediaan meja secara lebih terstruktur.
 
-## 2. Teknologi yang Digunakan
-
-| Teknologi | Kegunaan |
-|---|---|
-| Java | Bahasa pemrograman utama |
-| Java Swing | Pembuatan antarmuka aplikasi |
-| MySQL | Penyimpanan data |
-| JDBC | Penghubung Java dengan MySQL |
-| NetBeans IDE | Lingkungan pengembangan aplikasi |
-
-## 3. Pengguna Aplikasi
-
-JabaQueue memiliki dua jenis pengguna internal dan satu tampilan informasi untuk pelanggan.
-
+## 2. Pengguna Aplikasi
 | Pengguna | Hak Akses |
 |---|---|
 | Admin | Mengelola akun staf, data meja, dan melihat laporan antrean |
-| Staff | Mendaftarkan pelanggan, mengelola antrean, dan mengatur meja |
+| Staff | Mendaftarkan pelanggan, mengelola antrean, mengalokasikan meja, dan memperbarui status meja |
 | Customer | Melihat ketersediaan meja dan memeriksa status antrean menggunakan kode akses |
 
 Pelanggan tidak perlu membuat akun atau melakukan login. Data pelanggan akan dimasukkan oleh staf ketika pelanggan datang ke kafe.
 
 ## 4. Gambaran Aplikasi dan Fungsionalitas
-
 ### 4.1. Login
-
 Admin dan staf harus melakukan login menggunakan username dan password yang telah terdaftar.
 
 ### 4.2. Dashboard
-
 Menampilkan ringkasan informasi operasional kafe, seperti:
 - Jumlah pelanggan yang sedang mengantre.
 - Jumlah meja yang tersedia.
 - Jumlah meja yang sedang digunakan.
 
 ### 4.3. Manajemen Antrean
-
 Staf dapat melakukan beberapa aktivitas berikut:
 - Mendaftarkan pelanggan dengan memasukkan nama dan jumlah orang.
 - Menghasilkan nomor antrean secara otomatis, misalnya A012.
@@ -61,27 +42,27 @@ Staf dapat melakukan beberapa aktivitas berikut:
 - Mengubah status antrean: SEATED, FINISHED, CANCELLED, atau NO_SHOW.
 
 ### 4.4. Manajemen Meja
+**Admin dapat:**
+- Menambahkan data meja baru.
+- Mengubah nomor dan kapasitas meja.
+- Menghapus data meja yang tidak lagi digunakan.
 
-Admin dapat:
- -Menambah, mengubah, dan menghapus data meja serta kapasitasnya 
-
-Staf dapat:
-- Menambahkan, mengubah, dan menghapus data meja.
-- Mengatur kapasitas setiap meja.
-- Melihat status meja.
+**Staf dapat:**
+- Melihat daftar meja beserta kapasitas dan statusnya.
+- Mengalokasikan meja kepada pelanggan yang dipanggil.
+- Memperbarui status meja sesuai kondisi operasional.
 
 Status meja terdiri dari:
-- *Available:* Meja tersedia.
-- *Reserved:* Meja telah dialokasikan untuk pelanggan yang dipanggil.
-- *Occupied:* Meja sedang digunakan pelanggan.
-- *Cleaning:* Meja sedang dibersihkan.
+- **Available:** Meja tersedia.
+- **Reserved:** Meja telah dialokasikan untuk pelanggan yang dipanggil.
+- **Occupied:** Meja sedang digunakan pelanggan.
+- **Cleaning:** Meja sedang dibersihkan.
 
 ### 4.5. Tampilan Pelanggan (Customer Display)
-
 Pelanggan dapat melihat informasi melalui tampilan khusus yang disediakan oleh aplikasi.
 
 Fitur yang direncanakan:
-- Melihat denah sederhana meja beserta kapasitas dan statusnya.
+- Melihat denah sederhana meja beserta kapasitas dan statusnya. --> (nanya saran dulu)
 - Memasukkan kode akses yang diberikan staf.
 - Melihat nomor antrean dan posisi antrean.
 - Melihat status antrean.
@@ -98,14 +79,11 @@ Informasi yang ditampilkan:
 - Nomor meja yang dituju.
 - Daftar antrean berikutnya.
 
-### 4.7. Laporan
-
+### 4.7. Laporan (masih bingung)
 Admin dapat melihat riwayat antrean dan jumlah pelanggan yang telah dilayani berdasarkan data yang tersimpan.
 
 ## 5. Perencanaan Alur Aplikasi
-
 ### 5.1. Alur Antrean Pelanggan
-
 1. Pelanggan datang ke Jabarano Cafe.
 2. Staf memasukkan nama pelanggan dan jumlah orang ke aplikasi.
 3. Sistem menghasilkan nomor antrean dan kode akses secara otomatis.
@@ -119,7 +97,6 @@ Admin dapat melihat riwayat antrean dan jumlah pelanggan yang telah dilayani ber
 11. Setelah pelanggan selesai, staf mengubah status meja menjadi CLEANING, kemudian menjadi AVAILABLE setelah meja siap digunakan kembali.
 
 ### 5.2. Alur Login
-
 1. Admin atau staf membuka aplikasi.
 2. Pengguna memasukkan username dan password.
 3. Sistem memvalidasi data login.
@@ -127,7 +104,6 @@ Admin dapat melihat riwayat antrean dan jumlah pelanggan yang telah dilayani ber
 5. Jika gagal, sistem menampilkan pesan kesalahan.
 
 ### 5.3. Alur Pengecekan Antrean oleh Pelanggan
-
 1. Pelanggan membuka Customer Display.
 2. Pelanggan melihat denah dan ketersediaan meja.
 3. Pelanggan memasukkan kode akses.
@@ -136,13 +112,10 @@ Admin dapat melihat riwayat antrean dan jumlah pelanggan yang telah dilayani ber
 6. Jika pelanggan telah dipanggil, sistem juga menampilkan nomor meja yang harus dituju.
 
 ## 6. Rancangan Database
-
-Database yang digunakan bernama db_jabaqueue dan terdiri dari tiga tabel utama.
+Database yang digunakan terdiri dari tiga tabel utama.
 
 ### 6.1. Tabel users
-
 Menyimpan informasi akun admin dan staf.
-
 | Nama Kolom | Tipe Data | Keterangan |
 |---|---|---|
 | id | INT | Primary Key, Auto Increment |
@@ -151,9 +124,7 @@ Menyimpan informasi akun admin dan staf.
 | role | ENUM | ADMIN atau STAFF |
 
 ### 6.2. Tabel cafe_tables
-
 Menyimpan informasi meja yang tersedia di kafe.
-
 | Nama Kolom | Tipe Data | Keterangan |
 |---|---|---|
 | id | INT | Primary Key, Auto Increment |
@@ -162,9 +133,7 @@ Menyimpan informasi meja yang tersedia di kafe.
 | status | ENUM | AVAILABLE, RESERVED, OCCUPIED, CLEANING |
 
 ### 6.3. Tabel queue_entries
-
 Menyimpan informasi antrean pelanggan.
-
 | Nama Kolom | Tipe Data | Keterangan |
 |---|---|---|
 | id | INT | Primary Key, Auto Increment |
@@ -179,13 +148,11 @@ Menyimpan informasi antrean pelanggan.
 | queue_date | DATE | Tanggal antrean |
 
 ### 6.4. Relasi Antar Tabel
-
 - Satu data meja dapat digunakan oleh banyak data antrean pada waktu yang berbeda.
 - Setiap data antrean dapat memiliki satu meja yang dialokasikan.
 - Tabel users menyimpan akun admin dan staf yang dapat mengakses sistem.
 
 mermaid
-erDiagram
     USERS {
         int id PK
         varchar username
@@ -217,7 +184,6 @@ erDiagram
 
 
 ## 7. Rancangan Class
-
 Rancangan class dibagi menjadi beberapa bagian agar kode program lebih terstruktur.
 
 ### 7.1. Model
@@ -258,19 +224,3 @@ Class yang merepresentasikan data dalam database.
 | FormCustomer | Menampilkan informasi meja dan status antrean pelanggan |
 | FormDisplay | Menampilkan antrean yang sedang dipanggil |
 | FormLaporan | Menampilkan riwayat antrean |
-
-## 8. Rencana Tampilan Aplikasi
-
-Antarmuka akan dibuat menggunakan komponen dasar Java Swing melalui NetBeans GUI Builder.
-
-| Form | Komponen Swing yang Direncanakan |
-|---|---|
-| Form Login | JFrame, JPanel, JLabel, JTextField, JPasswordField, JButton |
-| Dashboard | JFrame, JPanel, JLabel, JButton |
-| Manajemen Antrean | JTextField, JSpinner, JTable, JButton, JScrollPane |
-| Manajemen Meja | JTextField, JComboBox, JTable, JButton |
-| Customer Display | JPanel, JLabel, JTextField, JButton |
-| Public Display | JPanel, JLabel |
-| Laporan | JTable, JScrollPane |
-
-Desain antarmuka akan dibuat sederhana dan mengutamakan kemudahan penggunaan.
