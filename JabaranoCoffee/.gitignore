@@ -1,0 +1,17 @@
+# Maven
+target/
+
+# NetBeans
+nbproject/private/
+nb-configuration.xml
+
+# Koneksi database - JANGAN dipush
+# (minta tiap anggota edit Koneksi.java masing-masing sesuai setup lokal)
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IntelliJ (jaga-jaga kalau teman pakai IntelliJ)
+.idea/
+*.iml
