@@ -289,7 +289,6 @@ Pola penulisan setiap class: constructor, getter, setter, input, proses, output.
 | `view/FormDashboard.java` | Dashboard ringkasan operasional |
 | `view/FormCustomer.java` | Form pengecekan antrean oleh pelanggan |
 | `view/FormDisplay.java` | Layar publik antrean dipanggil |
-| SQL lanjutan | Merancang dan menguji View, Trigger, serta Stored Procedure untuk diserahkan kepada Kayla agar diintegrasikan ke `script.sql` |
 
 ## 8. Cara Menjalankan
 
