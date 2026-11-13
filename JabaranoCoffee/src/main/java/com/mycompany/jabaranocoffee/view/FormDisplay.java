@@ -131,7 +131,7 @@ public class FormDisplay extends javax.swing.JFrame {
     // Generated Code — GUI Builder
     // ----------------------------------------------------------------
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         lblJudul      = new javax.swing.JLabel();
         lblSubjudul   = new javax.swing.JLabel();
@@ -157,6 +157,7 @@ public class FormDisplay extends javax.swing.JFrame {
 
         lblKosong.setText("Belum ada antrean yang dipanggil");
         lblKosong.setHorizontalAlignment(SwingConstants.CENTER);
+        panelCalled.add(lblKosong);
 
         lblRefresh.setText("Diperbarui: -");
         lblRefresh.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -194,15 +195,14 @@ public class FormDisplay extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>
+    }// </editor-fold>//GEN-END:initComponents
 
-    // ----------------------------------------------------------------
-    // Deklarasi komponen
-    // ----------------------------------------------------------------
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel  lblJudul;
     private javax.swing.JLabel  lblSubjudul;
     private javax.swing.JLabel  lblNowServing;
     private javax.swing.JPanel  panelCalled;
     private javax.swing.JLabel  lblKosong;
     private javax.swing.JLabel  lblRefresh;
+    // End of variables declaration//GEN-END:variables
 }

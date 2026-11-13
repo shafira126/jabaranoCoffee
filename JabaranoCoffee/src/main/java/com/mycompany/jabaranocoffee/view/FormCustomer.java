@@ -125,7 +125,7 @@ public class FormCustomer extends javax.swing.JFrame {
     // Generated Code — GUI Builder
     // ----------------------------------------------------------------
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         lblJudul        = new javax.swing.JLabel();
         lblSubjudul     = new javax.swing.JLabel();
@@ -276,11 +276,9 @@ public class FormCustomer extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>
+    }// </editor-fold>//GEN-END:initComponents
 
-    // ----------------------------------------------------------------
-    // Deklarasi komponen
-    // ----------------------------------------------------------------
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel  lblJudul;
     private javax.swing.JLabel  lblSubjudul;
     private javax.swing.JLabel  lblKodeAkses;
@@ -297,4 +295,5 @@ public class FormCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel  lblStatus;
     private javax.swing.JLabel  lblDescMeja;
     private javax.swing.JLabel  lblMeja;
+    // End of variables declaration//GEN-END:variables
 }

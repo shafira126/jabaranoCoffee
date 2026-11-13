@@ -152,7 +152,7 @@ public class FormDashboard extends javax.swing.JFrame {
     // Generated Code — GUI Builder
     // ----------------------------------------------------------------
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         lblWelcome      = new javax.swing.JLabel();
         lblTanggal      = new javax.swing.JLabel();
@@ -170,7 +170,7 @@ public class FormDashboard extends javax.swing.JFrame {
         lblDescTable    = new javax.swing.JLabel();
         lblAktif        = new javax.swing.JLabel();
         tblAntrean      = new javax.swing.JTable();
-        scrollAntrean   = new javax.swing.JScrollPane(tblAntrean);
+        scrollAntrean   = new javax.swing.JScrollPane();
         btnAntrean      = new javax.swing.JButton();
         btnCustomer     = new javax.swing.JButton();
         btnDisplay      = new javax.swing.JButton();
@@ -224,6 +224,8 @@ public class FormDashboard extends javax.swing.JFrame {
         panelTable.setLayout(new java.awt.BorderLayout());
         panelTable.add(lblCountTable, java.awt.BorderLayout.CENTER);
         panelTable.add(lblDescTable, java.awt.BorderLayout.SOUTH);
+
+        scrollAntrean.setViewportView(tblAntrean);
 
         lblAktif.setFont(new java.awt.Font("Helvetica Neue", Font.BOLD, 12));
         lblAktif.setText("Antrean aktif hari ini");
@@ -301,11 +303,9 @@ public class FormDashboard extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>
+    }// </editor-fold>//GEN-END:initComponents
 
-    // ----------------------------------------------------------------
-    // Deklarasi komponen
-    // ----------------------------------------------------------------
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel     lblWelcome;
     private javax.swing.JLabel     lblTanggal;
     private javax.swing.JPanel     panelWaiting;
@@ -327,4 +327,5 @@ public class FormDashboard extends javax.swing.JFrame {
     private javax.swing.JButton    btnCustomer;
     private javax.swing.JButton    btnDisplay;
     private javax.swing.JButton    btnKeluar;
+    // End of variables declaration//GEN-END:variables
 }
