@@ -124,7 +124,7 @@ public class FormDashboard extends javax.swing.JFrame {
     // Output: navigasi ke form lain
     // ----------------------------------------------------------------
     private void openAntrean() {
-        new FormAntrean(loggedUser).setVisible(true);
+        new FormAntrean(loggedUser).setVisible(true); // sudah bisa dipakai
     }
 
     private void openCustomer() {

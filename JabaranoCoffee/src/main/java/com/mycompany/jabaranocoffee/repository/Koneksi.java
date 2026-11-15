@@ -22,11 +22,11 @@ public class Koneksi {
 
     // MAMP default  : port 8889
     // Laragon default: port 3306
-    private static final String URL  =
-            "jdbc:mysql://localhost:8889/jabarano_coffee" +
-            "?useSSL=false&serverTimezone=Asia/Jakarta&allowPublicKeyRetrieval=true";
+    private static final String URL =
+        "jdbc:mysql://localhost:3306/jabarano_coffee" +
+        "?useSSL=false&serverTimezone=Asia/Jakarta&allowPublicKeyRetrieval=true";
     private static final String USER = "root";
-    private static final String PASS = "root"; // MAMP: "root" | Laragon: ""
+    private static final String PASS = ""; // MAMP: "root" | Laragon: ""
 
     // Constructor
     private Koneksi() {

@@ -87,6 +87,8 @@ public class FormLogin extends javax.swing.JFrame {
             "Berhasil",
             javax.swing.JOptionPane.INFORMATION_MESSAGE
         );
+        new FormDashboard(user).setVisible(true);
+        this.dispose();
     }
     
     // Helper
