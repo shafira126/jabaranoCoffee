@@ -216,42 +216,42 @@ public class QueueRepository {
     }
     
     public Object[] findByAccessCode(String accessCode) {
-        String sql = "SELECT qe.id, qe.queue_number, qe.status, " +
-                     "ct.table_number " +
-                     "FROM queue_entries qe " +
-                     "LEFT JOIN cafe_tables ct ON qe.table_id = ct.id " +
-                     "WHERE qe.access_code = ?";
+    String sql = "SELECT qe.id, qe.queue_number, qe.status, " +
+                 "ct.table_number " +
+                 "FROM queue_entries qe " +
+                 "LEFT JOIN cafe_tables ct ON qe.table_id = ct.id " +
+                 "WHERE qe.access_code = ?";
 
-        try (Connection conn = Koneksi.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+    try (Connection conn = Koneksi.getConnection();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, accessCode);
+        ps.setString(1, accessCode);
 
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    int    id          = rs.getInt("id");
-                    String queueNumber = rs.getString("queue_number");
-                    String status      = rs.getString("status");
-                    String tableNumber = rs.getString("table_number"); // bisa null
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                int    id          = rs.getInt("id");
+                String queueNumber = rs.getString("queue_number");
+                String status      = rs.getString("status");
+                String tableNumber = rs.getString("table_number");
 
-                    // Hitung posisi dalam antrean (hanya kalau masih WAITING)
-                    int position = 0;
-                    if ("WAITING".equals(status)) {
-                        position = getPositionInQueue(id);
-                    }
-
-                    return new Object[]{queueNumber, position,
-                                        status, tableNumber};
+                int position = 0;
+                if ("WAITING".equals(status)) {
+                    position = getPositionInQueue(id);
                 }
-            }
 
-        } catch (SQLException e) {
-            System.err.println("[QueueRepository] Error findByAccessCode: "
-                    + e.getMessage());
+                // Tambah queueId di index ke-4
+                return new Object[]{queueNumber, position,
+                                    status, tableNumber, id};
+            }
         }
 
-        return null;
+    } catch (SQLException e) {
+        System.err.println("[QueueRepository] Error findByAccessCode: "
+                + e.getMessage());
     }
+
+    return null;
+}
     
     private int getPositionInQueue(int queueId) {
         String sql = "SELECT COUNT(*) FROM queue_entries " +

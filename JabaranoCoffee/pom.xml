@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
-        <exec.mainClass>com.mycompany.jabaranocoffee.view.FormLogin</exec.mainClass>
+        <exec.mainClass>com.mycompany.jabaranocoffee.JabaranoCoffee</exec.mainClass>
     </properties>
 
     <dependencies>

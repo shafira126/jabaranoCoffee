@@ -69,7 +69,6 @@ public class FormDashboard extends javax.swing.JFrame {
 
         // Tombol navigasi
         btnAntrean.addActionListener(e -> openAntrean());
-        btnCustomer.addActionListener(e -> openCustomer());
         btnDisplay.addActionListener(e -> openDisplay());
         btnKeluar.addActionListener(e -> doLogout());
     }
@@ -127,10 +126,6 @@ public class FormDashboard extends javax.swing.JFrame {
         new FormAntrean(loggedUser).setVisible(true); // sudah bisa dipakai
     }
 
-    private void openCustomer() {
-        new FormCustomer().setVisible(true);
-    }
-
     private void openDisplay() {
         new FormDisplay().setVisible(true);
     }
@@ -173,13 +168,12 @@ public class FormDashboard extends javax.swing.JFrame {
         scrollAntrean = new javax.swing.JScrollPane();
         tblAntrean = new javax.swing.JTable();
         btnAntrean = new javax.swing.JButton();
-        btnCustomer = new javax.swing.JButton();
         btnDisplay = new javax.swing.JButton();
         btnKeluar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Jabarano Coffee — Dashboard");
-        setPreferredSize(new java.awt.Dimension(700, 520));
+        setTitle("Dashboard Jabarano Coffee");
+        setPreferredSize(new java.awt.Dimension(860, 520));
         setResizable(false);
 
         lblWelcome.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -238,8 +232,6 @@ public class FormDashboard extends javax.swing.JFrame {
 
         btnAntrean.setText("Antrean");
 
-        btnCustomer.setText("Cek Pelanggan");
-
         btnDisplay.setText("Public Display");
 
         btnKeluar.setForeground(new java.awt.Color(180, 0, 0));
@@ -254,27 +246,27 @@ public class FormDashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(panelWaiting, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(10, 10, 10)
+                                .addComponent(panelCalled, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(10, 10, 10)
+                                .addComponent(panelFinished, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(10, 10, 10)
+                                .addComponent(panelTable, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblAktif)
+                            .addComponent(scrollAntrean))
+                        .addGap(16, 16, 16))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblWelcome)
                             .addComponent(lblTanggal))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(374, 374, 374)
                         .addComponent(btnAntrean)
-                        .addGap(6, 6, 6)
-                        .addComponent(btnCustomer)
-                        .addGap(6, 6, 6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDisplay)
-                        .addGap(6, 6, 6)
-                        .addComponent(btnKeluar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelWaiting, 0, 150, Short.MAX_VALUE)
-                        .addGap(10, 10, 10)
-                        .addComponent(panelCalled, 0, 150, Short.MAX_VALUE)
-                        .addGap(10, 10, 10)
-                        .addComponent(panelFinished, 0, 150, Short.MAX_VALUE)
-                        .addGap(10, 10, 10)
-                        .addComponent(panelTable, 0, 150, Short.MAX_VALUE))
-                    .addComponent(lblAktif)
-                    .addComponent(scrollAntrean, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                .addGap(16, 16, 16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnKeluar))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,7 +278,6 @@ public class FormDashboard extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(lblTanggal))
                     .addComponent(btnAntrean)
-                    .addComponent(btnCustomer)
                     .addComponent(btnDisplay)
                     .addComponent(btnKeluar))
                 .addGap(16, 16, 16)
@@ -302,12 +293,13 @@ public class FormDashboard extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
+        getAccessibleContext().setAccessibleName("Dashboard Jabarano Coffee");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAntrean;
-    private javax.swing.JButton btnCustomer;
     private javax.swing.JButton btnDisplay;
     private javax.swing.JButton btnKeluar;
     private javax.swing.JLabel lblAktif;
