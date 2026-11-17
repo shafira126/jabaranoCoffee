@@ -77,10 +77,6 @@ public class FormLogin extends javax.swing.JFrame {
     // Output: navigasi ke FormDashboard
     // ----------------------------------------------------------------
     private void openDashboard(User user) {
-        // Uncomment setelah FormDashboard selesai dikerjakan Rangga:
-        // new FormDashboard(user).setVisible(true);
-        // this.dispose();
-
         javax.swing.JOptionPane.showMessageDialog(
             this,
             "Login berhasil! Selamat datang, " + user.getUsername() + ".",

@@ -28,7 +28,8 @@ public class FormDashboard extends javax.swing.JFrame {
     private final User            loggedUser;
     private final QueueRepository queueRepository;
     private final TableRepository tableRepository;
-
+    private javax.swing.Timer dashboardTimer;
+    
     // ----------------------------------------------------------------
     // Constructor
     // ----------------------------------------------------------------
@@ -71,6 +72,23 @@ public class FormDashboard extends javax.swing.JFrame {
         btnAntrean.addActionListener(e -> openAntrean());
         btnDisplay.addActionListener(e -> openDisplay());
         btnKeluar.addActionListener(e -> doLogout());
+        
+        // Auto-refresh dashboard setiap 3 detik
+        dashboardTimer = new javax.swing.Timer(3000, e -> loadDashboard());
+        dashboardTimer.start();
+        
+        // Tutup FormAntrean saat Dashboard ditutup via tombol X dan buka FormLogin
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                for (java.awt.Window window : java.awt.Window.getWindows()) {
+                    if (!(window instanceof FormDisplay)) {
+                        window.dispose();
+                    }
+                }
+                new FormLogin().setVisible(true);
+            }
+        });
     }
 
     // ----------------------------------------------------------------
@@ -119,11 +137,17 @@ public class FormDashboard extends javax.swing.JFrame {
         }
     }
 
+    @Override
+    public void dispose() {
+        if (dashboardTimer != null) dashboardTimer.stop();
+        super.dispose();
+    }
+    
     // ----------------------------------------------------------------
     // Output: navigasi ke form lain
     // ----------------------------------------------------------------
     private void openAntrean() {
-        new FormAntrean(loggedUser).setVisible(true); // sudah bisa dipakai
+        new FormAntrean(loggedUser).setVisible(true);
     }
 
     private void openDisplay() {
@@ -138,8 +162,13 @@ public class FormDashboard extends javax.swing.JFrame {
             JOptionPane.YES_NO_OPTION
         );
         if (confirm == JOptionPane.YES_OPTION) {
+            // Tutup semua window kecuali FormDisplay
+            for (java.awt.Window window : java.awt.Window.getWindows()) {
+                if (!(window instanceof FormDisplay)) {
+                    window.dispose();
+                }
+            }
             new FormLogin().setVisible(true);
-            this.dispose();
         }
     }
 
@@ -171,7 +200,7 @@ public class FormDashboard extends javax.swing.JFrame {
         btnDisplay = new javax.swing.JButton();
         btnKeluar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Dashboard Jabarano Coffee");
         setPreferredSize(new java.awt.Dimension(860, 520));
         setResizable(false);
@@ -289,11 +318,9 @@ public class FormDashboard extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(lblAktif)
                 .addGap(6, 6, 6)
-                .addComponent(scrollAntrean, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addComponent(scrollAntrean, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
         );
-
-        getAccessibleContext().setAccessibleName("Dashboard Jabarano Coffee");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -183,7 +183,6 @@ public class FormCustomer extends javax.swing.JFrame {
         lblDescPosisi.setForeground(new java.awt.Color(100, 100, 100));
         lblDescPosisi.setText("Posisi");
 
-        lblPosisi.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
         lblPosisi.setText("-");
 
         lblDescStatus.setForeground(new java.awt.Color(100, 100, 100));

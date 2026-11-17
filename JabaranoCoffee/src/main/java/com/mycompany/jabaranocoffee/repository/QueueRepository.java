@@ -86,7 +86,7 @@ public class QueueRepository {
     
     @SuppressWarnings("empty-statement")
     private boolean isAccessCodeExists(String code){
-        String sql = "SELECT COUNT (*) FROM queue_entries WHERE access_code = ?";
+        String sql = "SELECT COUNT(*) FROM queue_entries WHERE access_code = ?";
         
         try(Connection conn = Koneksi.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql)){

@@ -129,7 +129,7 @@ public class FormDisplay extends javax.swing.JFrame {
     // ----------------------------------------------------------------
     private void showCekAntreanDialog() {
         JDialog dialog = new JDialog(this, "Cek Status Antrean", true);
-        dialog.setSize(380, 480);
+        dialog.setSize(520, 580);
         dialog.setLocationRelativeTo(this);
         dialog.setResizable(false);
         dialog.getContentPane().setBackground(new Color(42, 42, 42));
@@ -260,9 +260,13 @@ public class FormDisplay extends javax.swing.JFrame {
         tblRiwayat.getTableHeader().setBackground(new Color(50, 50, 50));
         tblRiwayat.getTableHeader().setForeground(new Color(150, 150, 150));
         tblRiwayat.setEnabled(false);
+        tblRiwayat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        tblRiwayat.getColumnModel().getColumn(0).setPreferredWidth(120); // Dari
+        tblRiwayat.getColumnModel().getColumn(1).setPreferredWidth(120); // Ke
+        tblRiwayat.getColumnModel().getColumn(2).setPreferredWidth(100); // Waktu
 
         JScrollPane scrollRiwayat = new JScrollPane(tblRiwayat);
-        scrollRiwayat.setPreferredSize(new Dimension(0, 110));
+        scrollRiwayat.setPreferredSize(new Dimension(0, 130));
         scrollRiwayat.setBorder(BorderFactory.createEmptyBorder());
 
         panelRiwayat.add(lblRiwayatJudul, BorderLayout.NORTH);
@@ -414,7 +418,7 @@ public class FormDisplay extends javax.swing.JFrame {
         btnCekAntrean = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Jabarano Coffee — Public Display");
+        setTitle("Public Display Jabarano Coffee");
 
         lblJudul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblJudul.setText("Jabarano Coffee");
