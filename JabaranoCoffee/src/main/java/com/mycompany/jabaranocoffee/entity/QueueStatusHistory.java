@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -20,7 +21,7 @@ public class QueueStatusHistory {
     public QueueStatusHistory(){}
     
     public QueueStatusHistory(int id, int queueId, String oldStatus,
-                            String newstatus, LocalDateTime changeAt){
+                            String newStatus, LocalDateTime changedAt){
         this.id = id;
         this.queueId = queueId;
         this.oldStatus = oldStatus;

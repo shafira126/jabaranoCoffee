@@ -24,8 +24,8 @@ public class QueueRepository {
         LocalDate today = LocalDate.now();
         
         String sql = "INSERT INTO queue_entries "
-                + "(queue_number, access_code, customer_name, party_size, " + "status, queue_date) "
-                + "VALUES (?, ?, ?, ?, 'WAITING', ?)";
+                + "(queue_number, access_code, customer_name, party_size, " 
+                + "status, queue_date) " + "VALUES (?, ?, ?, ?, 'WAITING', ?)";
         
         try(Connection conn = Koneksi.getConnection(); 
             PreparedStatement ps = conn.prepareStatement
@@ -84,7 +84,6 @@ public class QueueRepository {
         return code;    
     } 
     
-    @SuppressWarnings("empty-statement")
     private boolean isAccessCodeExists(String code){
         String sql = "SELECT COUNT(*) FROM queue_entries WHERE access_code = ?";
         
@@ -194,25 +193,43 @@ public class QueueRepository {
     
     public List<Object[]> findCalledForDisplay() {
         List<Object[]> rows = new ArrayList<>();
-        String sql = "SELECT queue_number, table_number FROM v_queue_display";
+        String sql = "SELECT qe.queue_number, qe.customer_name, qe.party_size, "
+                + "qe.status, qe.joined_at "
+                + "FROM queue_entries qe "
+                + "WHERE qe.queue_date = ? "
+                + "ORDER BY qe.joined_at ASC";
 
         try (Connection conn = Koneksi.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            while (rs.next()) {
-                rows.add(new Object[]{
-                    rs.getString("queue_number"),
-                    rs.getString("table_number")
-                });
+            ps.setDate(1, Date.valueOf(LocalDate.now()));
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Timestamp waktu = rs.getTimestamp("joined_at");
+                    String jam = "-";
+
+                    if (waktu != null) {
+                        jam = waktu.toLocalDateTime().format(
+                                java.time.format.DateTimeFormatter.ofPattern("HH:mm")
+                        );
+                    }
+
+                    rows.add(new Object[]{
+                        rs.getString("queue_number"),
+                        rs.getString("customer_name"),
+                        rs.getInt("party_size"),
+                        rs.getString("status"),
+                        jam
+                    });
+                }
             }
-
         } catch (SQLException e) {
-            System.err.println("[QueueRepository] Error findCalledForDisplay: "
+            System.err.println("[QueueRepository] Error findTodayQueueForTable: "
                     + e.getMessage());
         }
-
         return rows;
+
     }
     
     public Object[] findByAccessCode(String accessCode) {
@@ -229,9 +246,9 @@ public class QueueRepository {
 
         try (ResultSet rs = ps.executeQuery()) {
             if (rs.next()) {
-                int    id          = rs.getInt("id");
+                int id = rs.getInt("id");
                 String queueNumber = rs.getString("queue_number");
-                String status      = rs.getString("status");
+                String status = rs.getString("status");
                 String tableNumber = rs.getString("table_number");
 
                 int position = 0;
@@ -290,7 +307,6 @@ public class QueueRepository {
             cs.setInt(1, queueId);
             cs.setInt(2, tableId);
             cs.registerOutParameter(3, Types.VARCHAR);
-
             cs.execute();
 
             return cs.getString(3); // SUCCESS atau pesan error
@@ -325,8 +341,8 @@ public class QueueRepository {
     
     //membatalkan antrean 
     public boolean cancelQueue(int queueId) {
-        String sql = "UPDATE queue_entries SET status = 'CANCELLED' " + // mengubah status ke CANCELLED
-                     "WHERE id = ? AND status = 'WAITING'";
+        String sql = "UPDATE queue_entries SET status = 'CANCELLED' " 
+                + "WHERE id = ? AND status = 'WAITING'"; // mengubah status ke CANCELLED 
 
         try (Connection conn = Koneksi.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -342,7 +358,7 @@ public class QueueRepository {
         return false;
     }
     
-    //mengambil history perubahan status
+    // Mengambil riwayat perubahan status antrean
     public List<QueueStatusHistory> findHistoryByQueueId(int queueId) {
         List<QueueStatusHistory> list = new ArrayList<>();
         String sql = "SELECT id, queue_id, old_status, new_status, changed_at " +
@@ -380,7 +396,7 @@ public class QueueRepository {
         return list;
     }
     
-    //menghitung jumlah antrean pada hari tsb berdasarkaan status
+    //menghitung jumlah antrean berdasarkaan status
     public int countByStatus(String status) {
         String sql = "SELECT COUNT(*) FROM queue_entries " +
                      "WHERE status = ? AND queue_date = ?";
@@ -396,12 +412,10 @@ public class QueueRepository {
                     return rs.getInt(1);
                 }
             }
-
         } catch (SQLException e) {
             System.err.println("[QueueRepository] Error countByStatus: "
                     + e.getMessage());
         }
-
         return 0;
     }
     
@@ -415,17 +429,22 @@ public class QueueRepository {
 
         int tableId = rs.getInt("table_id");
         q.setTableId(rs.wasNull() ? null : tableId);
-
         q.setStatus(rs.getString("status"));
 
         Timestamp joinedAt = rs.getTimestamp("joined_at");
-        if (joinedAt != null) q.setJoinedAt(joinedAt.toLocalDateTime());
+        if (joinedAt != null){
+            q.setJoinedAt(joinedAt.toLocalDateTime());
+        }
 
         Timestamp calledAt = rs.getTimestamp("called_at");
-        if (calledAt != null) q.setCalledAt(calledAt.toLocalDateTime());
+        if (calledAt != null) {
+            q.setCalledAt(calledAt.toLocalDateTime());
+        }
 
         Date queueDate = rs.getDate("queue_date");
-        if (queueDate != null) q.setQueueDate(queueDate.toLocalDate());
+        if (queueDate != null){
+            q.setQueueDate(queueDate.toLocalDate());
+        }
 
         return q;
     }
