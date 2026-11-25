@@ -38,7 +38,7 @@ public class UserRepository {
      * Mengembalikan objek User jika berhasil, null jika gagal.
      *
      * @param username username staff
-     * @param password password staff (plain text)
+     * @param password password staff
      * @return User jika valid, null jika tidak ditemukan
      */
     public User login(String username, String password) {
@@ -72,7 +72,6 @@ public class UserRepository {
 
     /*
      * Mencari user berdasarkan username saja.
-     * Berguna untuk pengecekan keberadaan akun.
      *
      * @param username username yang dicari
      * @return User jika ditemukan, null jika tidak ada
@@ -99,9 +98,6 @@ public class UserRepository {
         return null;
     }
 
-    // ----------------------------------------------------------------
-    // Helper: mapping ResultSet -> User
-    // ----------------------------------------------------------------
     private User mapResultSetToUser(ResultSet rs) throws SQLException {
         User user = new User();
         user.setId(rs.getInt("id"));

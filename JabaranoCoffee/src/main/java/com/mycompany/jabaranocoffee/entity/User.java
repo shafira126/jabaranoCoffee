@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  */
 
 public class User {
-
+    
     // ----------------------------------------------------------------
     // Atribut
     // ----------------------------------------------------------------
@@ -49,8 +49,8 @@ public class User {
     // Setter
     // ----------------------------------------------------------------
     public void setId(int id)                          { this.id = id; }
-    public void setUsername(String username)            { this.username = username; }
-    public void setPassword(String password)            { this.password = password; }
+    public void setUsername(String username)           { this.username = username; }
+    public void setPassword(String password)           { this.password = password; }
     public void setCreatedAt(LocalDateTime createdAt)  { this.createdAt = createdAt; }
 
     // ----------------------------------------------------------------
